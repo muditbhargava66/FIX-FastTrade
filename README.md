@@ -111,7 +111,7 @@ fix-protocol-electronic-trading/
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/FIX-FastTrade.git
+   git clone https://github.com/muditbhargava66/FIX-FastTrade.git
    ```
 
 2. Navigate to the project directory:
