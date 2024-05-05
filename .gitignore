@@ -1,5 +1,9 @@
-# Prerequisites
-*.d
+# Build directory
+/build/
+
+# IDE files
+.vscode/
+.idea/
 
 # Compiled Object files
 *.slo
@@ -30,3 +34,22 @@
 *.exe
 *.out
 *.app
+
+# Debug files
+*.dSYM/
+*.su
+*.idb
+*.pdb
+
+# Kernel Module Compile Results
+*.mod*
+*.cmd
+.tmp_versions/
+modules.order
+Module.symvers
+Mkfile.old
+dkms.conf
+
+# Generated documentation
+/docs/html/
+/docs/latex/
