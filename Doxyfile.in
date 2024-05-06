@@ -1,0 +1,115 @@
+# Project name
+PROJECT_NAME = "FIX-FastTrade"
+
+# Output directory
+OUTPUT_DIRECTORY = @CMAKE_CURRENT_BINARY_DIR@/docs
+
+# Input files and directories
+INPUT = @CMAKE_SOURCE_DIR@/include \
+        @CMAKE_SOURCE_DIR@/src \
+        @CMAKE_SOURCE_DIR@/docs
+
+# Recursive search
+RECURSIVE = YES
+
+# Extract all code comments
+EXTRACT_ALL = YES
+
+# Generate HTML documentation
+GENERATE_HTML = YES
+HTML_OUTPUT = html
+
+# Disable LaTeX generation
+GENERATE_LATEX = NO
+
+# Use the default style sheet
+HTML_STYLESHEET = 
+
+# Enable source code browsing
+SOURCE_BROWSER = YES
+
+# Enable class diagrams
+CLASS_DIAGRAMS = YES
+
+# Generate class collaboration diagrams
+COLLABORATION_GRAPH = YES
+
+# Include private members in the documentation
+EXTRACT_PRIVATE = YES
+
+# Include static members in the documentation
+EXTRACT_STATIC = YES
+
+# Strip namespaces from symbols
+HIDE_NAMESPACES = NO
+
+# Strip function signatures from the documentation
+HIDE_FUNCTION_SIGNATURES = NO
+
+# Generate documentation for undocumented members
+EXTRACT_ANON_NSPACES = YES
+
+# Generate documentation for undocumented classes
+EXTRACT_LOCAL_CLASSES = YES
+
+# Enable preprocessing of source files
+ENABLE_PREPROCESSING = YES
+
+# Define preprocessor macros
+PREDEFINED = 
+
+# Expand references to external documentation
+EXTERNAL_GROUPS = YES
+EXTERNAL_PAGES = YES
+
+# Generate a TODO list
+GENERATE_TODOLIST = YES
+
+# Generate a test list
+GENERATE_TESTLIST = YES
+
+# Generate a bug list
+GENERATE_BUGLIST = YES
+
+# Generate a deprecation list
+GENERATE_DEPRECATEDLIST = YES
+
+# Output language for the documentation
+OUTPUT_LANGUAGE = English
+
+# Enable search capabilities
+SEARCHENGINE = YES
+
+# Path to additional search mappings
+SEARCHDATA_FILE = @CMAKE_CURRENT_BINARY_DIR@/searchdata.xml
+
+# Specify the file patterns for the input files
+FILE_PATTERNS = *.h \
+                *.hpp \
+                *.cpp \
+                *.md
+
+# Specify the file patterns for the excluded files
+EXCLUDE_PATTERNS =
+
+# Specify the file patterns for the example files
+EXAMPLE_PATTERNS =
+
+# Specify the path to the example source files
+EXAMPLE_PATH =
+
+# Enable source code inclusion in the documentation
+SOURCE_BROWSER = YES
+
+# Strip the path prefix from file names
+STRIP_FROM_PATH = @CMAKE_SOURCE_DIR@
+
+# Strip the path prefix from include file names
+STRIP_FROM_INC_PATH = @CMAKE_SOURCE_DIR@/include
+
+# Generate HTML header and footer files
+HTML_HEADER = 
+HTML_FOOTER = 
+
+# Specify the main page for the documentation
+USE_MDFILE_AS_MAINPAGE = @CMAKE_SOURCE_DIR@/docs/mainpage.md

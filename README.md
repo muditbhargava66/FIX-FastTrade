@@ -2,7 +2,17 @@
 
 FIX-FastTrade is a high-performance electronic trading system that utilizes the Financial Information eXchange (FIX) protocol for fast and reliable communication between trading parties. It is designed to handle high-volume trading scenarios with low latency and high throughput.
 
-## Features
+## Version 1.0.5
+
+### Release Notes
+
+- Added support for custom FIX message types and fields
+- Improved error handling and logging capabilities
+- Optimized memory usage and performance
+- Fixed issues related to session management and reconnection
+- Upgraded dependencies to the latest stable versions
+
+### Features
 
 - Robust implementation of the FIX protocol for secure and efficient message exchange
 - Optimized for low latency and high throughput to support high-frequency trading
@@ -12,7 +22,7 @@ FIX-FastTrade is a high-performance electronic trading system that utilizes the 
 - Support for multiple trading platforms and market data providers
 - Real-time monitoring and analytics for trade execution and risk management
 
-## Code Directory Structure
+### Code Directory Structure
 
 The FIX-FastTrade project follows a well-organized directory structure to ensure code modularity and maintainability. Here's an overview of the main directories and their purposes:
 
@@ -35,8 +45,8 @@ fix-protocol-electronic-trading/
 │   │   ├── fix_protocol.md
 │   │   └── trading_system.md
 │   ├── diagrams/
-│   │   ├── sequence_diagram.png
-│   │   └── system_architecture.png
+│   │   ├── sequence_diagram.svg
+│   │   └── system_architecture.svg
 │   └── user_guide.md
 ├── include/
 │   ├── fix/
@@ -91,23 +101,17 @@ fix-protocol-electronic-trading/
         └── generate_docs.sh
 ```
 
-- `docs/`: Contains documentation files, including API documentation, design documents, diagrams, and user guides.
-- `include/`: Contains header files for the project, organized by component (e.g., fix, model, service).
-- `src/`: Contains the corresponding source files for the header files in the `include/` directory.
-- `tests/`: Contains test files for the project, organized similar to the `src/` directory.
-- `third_party/`: Contains any third-party libraries or dependencies used in the project.
-- `tools/`: Contains build scripts, utility scripts, and other project-related tools.
+### Getting Started
 
-## Getting Started
-
-### Prerequisites
+#### Prerequisites
 
 - C++17 compiler
 - CMake (version 3.10 or higher)
 - Boost library (version 1.71.0 or higher)
+- QuickFIX library (version 1.15.1 or higher)
 - Google Test and Google Mock (optional, for running tests)
 
-### Installation
+#### Installation
 
 1. Clone the repository:
    ```bash
@@ -140,7 +144,7 @@ fix-protocol-electronic-trading/
    ctest
    ```
 
-### Usage
+#### Usage
 
 1. Configure the FIX-FastTrade system by modifying the configuration files in the `config` directory.
 
@@ -153,19 +157,38 @@ fix-protocol-electronic-trading/
 
 4. You can interact with the FIX-FastTrade system using a FIX client or by integrating it with your existing trading infrastructure.
 
-## Configuration
+### Configuration
 
 The FIX-FastTrade system can be configured using the configuration files located in the `config` directory. The main configuration file is `config.txt`, which contains settings for the FIX session, connectivity, and other system parameters.
 
 Modify the configuration files according to your specific requirements, such as the FIX version, sender and target CompIDs, connection settings, and logging preferences.
 
-## Contributing
+### Documentation
+
+The FIX-FastTrade project provides comprehensive documentation to help users understand and utilize the system effectively. The documentation includes:
+
+- API documentation: Detailed information about the FIX API, Model API, and Service API.
+- Design documentation: Architectural overview, FIX protocol integration, and trading system design.
+- Diagrams: Sequence diagram illustrating the flow of messages and system architecture diagram providing a high-level overview.
+- User guide: Instructions on how to use and interact with the FIX-FastTrade system.
+
+Please refer to the `docs` directory for the complete documentation.
+
+## System Design
+
+The following diagrams provide visual documentation of the FIX-FastTrade system:
+
+- [Sequence Diagram](docs/diagrams/sequence_diagram.png): Illustrates the flow of messages and interactions between the key components of the system during a typical trading scenario.
+
+- [System Architecture Diagram](docs/diagrams/system_architecture.png): Provides a high-level overview of the system's architecture, showcasing the main components and their interactions.
+
+### Contributing
 
 Contributions to FIX-FastTrade are welcome! If you encounter any issues, have suggestions for improvements, or want to add new features, please open an issue or submit a pull request on the GitHub repository.
 
 When contributing, please follow the existing coding style, write unit tests for any new functionality, and ensure that all tests pass before submitting a pull request.
 
-## License
+### License
 
 FIX-FastTrade is open-source software licensed under the [MIT License](LICENSE).
 
