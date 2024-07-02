@@ -1,4 +1,3 @@
-```markdown
 # QuickFIX Installation on macOS
 
 This document provides detailed steps for installing QuickFIX on macOS.
@@ -97,3 +96,5 @@ grep 'set(PACKAGE_VERSION ' $HOME/quickfix-install/CMakeLists.txt
 ```
 
 If you encounter any issues during the installation process, please refer to the official QuickFIX documentation or seek assistance from the QuickFIX community.
+
+---

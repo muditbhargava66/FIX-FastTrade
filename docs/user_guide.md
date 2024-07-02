@@ -217,4 +217,6 @@ If the issue persists, reach out to the FIX-FastTrade support team for further a
 
 For any questions, issues, or support requirements, please contact the FIX-FastTrade support team at [support@fix-fasttrade.com](mailto:support@fix-fasttrade.com). We are available 24/7 to assist you with your FIX-FastTrade installation and usage.
 
-You can also visit our website at [www.fix-fasttrade.com](https://www.fix-fasttrade.com) for additional resources, documentation, and updates.
+You can also visit our website at [www.fix-fasttrade.com](https://fix-fasttrade.readthedocs.io/) for additional resources, documentation, and updates.
+
+---

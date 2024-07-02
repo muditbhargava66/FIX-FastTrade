@@ -1,5 +1,17 @@
 # FIX-FastTrade
 
+![Banner](docs/images/fix-fast-trade-banner.png)
+
+[![GitHub license](https://img.shields.io/github/license/muditbhargava66/FIX-FastTrade)](https://github.com/muditbhargava66/FIX-FastTrade/blob/main/LICENSE)
+[![Documentation Status](https://readthedocs.org/projects/fix-fasttrade/badge/?version=latest)](https://fix-fasttrade.readthedocs.io/en/latest/?badge=latest)
+[![CodeQL](https://github.com/muditbhargava66/FIX-FastTrade/actions/workflows/github-code-scanning/codeql/badge.svg)](https://github.com/muditbhargava66/FIX-FastTrade/actions/workflows/github-code-scanning/codeql)
+[![GitHub stars](https://img.shields.io/github/stars/muditbhargava66/FIX-FastTrade)](https://github.com/muditbhargava66/FIX-FastTrade/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/muditbhargava66/FIX-FastTrade)](https://github.com/muditbhargava66/FIX-FastTrade/network/members)
+![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)
+![Last Commit](https://img.shields.io/github/last-commit/muditbhargava66/FIX-FastTrade)
+[![Open Issues](https://img.shields.io/github/issues/muditbhargava66/FIX-FastTrade)](https://github.com/muditbhargava66/FIX-FastTrade/issues)
+[![Open PRs](https://img.shields.io/github/issues-pr/muditbhargava66/FIX-FastTrade)](https://github.com/muditbhargava66/FIX-FastTrade/pulls)
+
 FIX-FastTrade is a high-performance electronic trading system that utilizes the Financial Information eXchange (FIX) protocol for fast and reliable communication between trading parties. It is designed to handle high-volume trading scenarios with low latency and high throughput.
 
 ## Version 1.0.5

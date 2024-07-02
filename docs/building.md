@@ -1,8 +1,10 @@
+# Building
+
 To ensure that everything is working and building correctly in your FIX-FastTrade project, including the main repository, Google Test, and QuickFIX, you can follow these steps in the terminal:
 
 1. Clone the FIX-FastTrade repository:
    ```
-   git clone https://github.com/your-username/FIX-FastTrade.git
+   git clone https://github.com/muditbhargava66/FIX-FastTrade.git
    cd FIX-FastTrade
    ```
 
@@ -72,3 +74,5 @@ git pull origin main
 If you encounter any issues or have questions, consult the project's documentation, seek help from the community or the project maintainers, and refer to the troubleshooting guides or FAQs.
 
 By following these steps and regularly monitoring the build and execution process, you can ensure that everything is working and building correctly in your FIX-FastTrade project, including the main repository, Google Test, and QuickFIX.
+
+---
