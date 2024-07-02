@@ -53,3 +53,7 @@ dkms.conf
 # Generated documentation
 /docs/html/
 /docs/latex/
+
+# Distribution / packaging
+MANIFEST
+*.DS_Store
