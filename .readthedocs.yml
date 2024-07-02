@@ -7,7 +7,7 @@ version: 2
 
 # Build documentation in the "docs/" directory with Sphinx
 sphinx:
-  configuration: docs/readthedocs/conf.py
+  configuration: docs/conf.py
 
 # Define the build environment settings
 build:
@@ -18,7 +18,7 @@ build:
 # Define the steps required to install the project's dependencies
 python:
   install:
-    - requirements: docs/readthedocs/requirements.txt  # Install documentation dependencies
+    - requirements: docs/requirements.txt  # Install documentation dependencies
 
 # Optionally, define additional formats to build (e.g., PDF, ePub)
 formats:
