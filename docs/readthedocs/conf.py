@@ -57,3 +57,10 @@ source_suffix = {
     '.rst': 'restructuredtext',
     '.md': 'markdown',
 }
+
+myst_enable_extensions = [
+    "colon_fence",
+]
+
+# Add this line to tell Sphinx where to find the source files
+docs_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
