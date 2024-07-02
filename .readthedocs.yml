@@ -18,7 +18,7 @@ build:
 # Define the steps required to install the project's dependencies
 python:
   install:
-    # - requirements: requirements.txt  # Install project dependencies
+    - requirements: requirements.txt  # Install project dependencies
     - requirements: docs/readthedocs/requirements.txt  # Install documentation dependencies
 
 # Optionally, define additional formats to build (e.g., PDF, ePub)
@@ -42,4 +42,4 @@ python:
    install:
    - requirements: docs/readthedocs/requirements.txt
    - method: pip
-    #  path: .
+     path: .
