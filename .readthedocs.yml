@@ -38,8 +38,8 @@ formats:
 #       - sphinx-apidoc -o docs/source/ my_package
 
 # Optionally declare the Python requirements required to build your docs
-python:
-   install:
-   - requirements: docs/readthedocs/requirements.txt
-   - method: pip
-     path: .
+# python:
+#    install:
+#    - requirements: docs/readthedocs/requirements.txt
+#    - method: pip
+#      path: .

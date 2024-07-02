@@ -4,6 +4,8 @@
 # IDE files
 .vscode/
 .idea/
+*.swp
+*.swo
 
 # Compiled Object files
 *.slo
@@ -51,9 +53,67 @@ Mkfile.old
 dkms.conf
 
 # Generated documentation
+/docs/_build/
 /docs/html/
 /docs/latex/
 
 # Distribution / packaging
 MANIFEST
-*.DS_Store
+*.egg-info/
+dist/
+build/
+eggs/
+parts/
+var/
+sdist/
+develop-eggs/
+.installed.cfg
+lib/
+lib64/
+__pycache__/
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Python virtual environment
+venv/
+*.pyc
+
+# CMake files
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+install_manifest.txt
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+*.bak
+*.swp
+*~.nib
+
+# Test coverage
+*.gcno
+*.gcda
+*.gcov
+
+# Dependency directories
+node_modules/
+jspm_packages/
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Read the Docs
+.readthedocs.yml
