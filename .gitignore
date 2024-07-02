@@ -70,7 +70,7 @@ develop-eggs/
 .installed.cfg
 lib/
 lib64/
-__pycache__/
+**/__pycache__/
 
 # OS generated files
 .DS_Store
@@ -117,3 +117,6 @@ jspm_packages/
 
 # Read the Docs
 .readthedocs.yml
+
+# Ignore .DS_Store files in all directories
+**/.DS_Store
