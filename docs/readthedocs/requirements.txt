@@ -1,6 +1,5 @@
 sphinx>=5.0
 sphinx_rtd_theme
 myst-parser
-recommonmark
 sphinx-markdown-tables
 sphinxcontrib-applehelp

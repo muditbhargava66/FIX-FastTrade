@@ -28,7 +28,6 @@ extensions = [
     'sphinx.ext.viewcode',
     'sphinxcontrib.applehelp',
     'myst_parser',
-    'recommonmark',
     'sphinx_markdown_tables',
 ]
 
@@ -57,10 +56,4 @@ html_static_path = ['_static']
 source_suffix = {
     '.rst': 'restructuredtext',
     '.md': 'markdown',
-}
-
-# Markdown support
-from recommonmark.parser import CommonMarkParser
-source_parsers = {
-    '.md': CommonMarkParser,
 }
