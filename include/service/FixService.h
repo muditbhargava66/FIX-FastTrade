@@ -1,38 +1,45 @@
 #ifndef SERVICE_FIXSERVICE_H
 #define SERVICE_FIXSERVICE_H
 
-#include "fix/Config.h"
 #include "fix/Application.h"
+#include "fix/Session.h"
 #include "model/Order.h"
-#include <string>
-
-namespace fix {
-class Session;
-}
+#include <memory>
 
 namespace service {
 
+/**
+ * @brief FIX Service for handling FIX protocol operations
+ */
 class FixService {
 public:
-    FixService(const fix::Config& config, fix::Application& application);
+    FixService(std::shared_ptr<fix::Application> application);
+    virtual ~FixService() = default;
 
+    /**
+     * @brief Send a new order
+     */
+    bool sendNewOrder(const model::Order& order);
+    
+    /**
+     * @brief Cancel an order
+     */
+    bool cancelOrder(const std::string& orderId);
+    
+    /**
+     * @brief Start the service
+     */
     void start();
+    
+    /**
+     * @brief Stop the service
+     */
     void stop();
 
-    void sendOrder(const model::Order& order);
-    void cancelOrder(const std::string& orderId);
-
-    void onOrderAccepted(const fix::Message& message);
-    void onOrderRejected(const fix::Message& message);
-    void onOrderExecuted(const fix::Message& message);
-    void onOrderCanceled(const fix::Message& message);
-
 private:
-    void populateNewOrderSingle(fix::Message& message, const model::Order& order);
-    void populateOrderCancelRequest(fix::Message& message, const std::string& orderId);
-    std::string generateCancelOrderId(const std::string& orderId);
-
-    fix::Session& session_;
+    std::shared_ptr<fix::Application> application_;
+    std::unique_ptr<fix::Session> session_;
+    bool running_ = false;
 };
 
 }  // namespace service

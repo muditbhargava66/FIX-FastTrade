@@ -2,9 +2,13 @@
 #define FIX_APPLICATION_H
 
 #include "fix/Message.h"
-#include "fix/Session.h"
+#include "fix/SessionID.h"
+#include <string>
 
 namespace fix {
+
+// Forward declaration
+class Session;
 
 class Application {
 public:

@@ -12,6 +12,7 @@ public:
     std::string getField(int tag) const;
     bool hasField(int tag) const;
     void removeField(int tag);
+    void clear();
 
     const std::unordered_map<int, std::string>& getFields() const;
 

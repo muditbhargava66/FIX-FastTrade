@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://fix-fasttrade.org/config"
+           xmlns:tns="http://fix-fasttrade.org/config"
+           elementFormDefault="qualified">
+
+  <!-- Root element -->
+  <xs:element name="FixConfiguration" type="tns:FixConfigurationType"/>
+
+  <!-- Main configuration type -->
+  <xs:complexType name="FixConfigurationType">
+    <xs:sequence>
+      <xs:element name="Connection" type="tns:ConnectionType"/>
+      <xs:element name="Session" type="tns:SessionType"/>
+      <xs:element name="Performance" type="tns:PerformanceType" minOccurs="0"/>
+      <xs:element name="Logging" type="tns:LoggingType" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- Connection configuration -->
+  <xs:complexType name="ConnectionType">
+    <xs:sequence>
+      <xs:element name="Type" type="tns:ConnectionTypeEnum"/>
+      <xs:element name="Host" type="xs:string"/>
+      <xs:element name="Port" type="xs:positiveInteger"/>
+      <xs:element name="HeartBtInt" type="xs:positiveInteger" default="30"/>
+      <xs:element name="ReconnectInterval" type="xs:positiveInteger" default="5"/>
+      <xs:element name="SocketNoDelay" type="xs:boolean" default="true" minOccurs="0"/>
+      <xs:element name="SocketSendBufferSize" type="xs:positiveInteger" minOccurs="0"/>
+      <xs:element name="SocketReceiveBufferSize" type="xs:positiveInteger" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- Session configuration -->
+  <xs:complexType name="SessionType">
+    <xs:sequence>
+      <xs:element name="BeginString" type="tns:FixVersionEnum"/>
+      <xs:element name="SenderCompID" type="xs:string"/>
+      <xs:element name="TargetCompID" type="xs:string"/>
+      <xs:element name="SessionQualifier" type="xs:string" minOccurs="0"/>
+      <xs:element name="StartTime" type="xs:time" default="00:00:00" minOccurs="0"/>
+      <xs:element name="EndTime" type="xs:time" default="23:59:59" minOccurs="0"/>
+      <xs:element name="UseLocalTime" type="xs:boolean" default="false" minOccurs="0"/>
+      <xs:element name="PersistMessages" type="xs:boolean" default="true" minOccurs="0"/>
+      <xs:element name="ResetOnLogon" type="xs:boolean" default="false" minOccurs="0"/>
+      <xs:element name="ResetOnLogout" type="xs:boolean" default="false" minOccurs="0"/>
+      <xs:element name="ResetOnDisconnect" type="xs:boolean" default="false" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- Performance configuration -->
+  <xs:complexType name="PerformanceType">
+    <xs:sequence>
+      <xs:element name="CheckLatency" type="xs:boolean" default="false" minOccurs="0"/>
+      <xs:element name="MillisecondsInTimeStamp" type="xs:boolean" default="false" minOccurs="0"/>
+      <xs:element name="ValidateFieldsOutOfOrder" type="xs:boolean" default="true" minOccurs="0"/>
+      <xs:element name="ValidateFieldsHaveValues" type="xs:boolean" default="true" minOccurs="0"/>
+      <xs:element name="ValidateUserDefinedFields" type="xs:boolean" default="true" minOccurs="0"/>
+      <xs:element name="AllowUnknownMsgFields" type="xs:boolean" default="false" minOccurs="0"/>
+      <xs:element name="PreserveMessageFieldsOrder" type="xs:boolean" default="true" minOccurs="0"/>
+      <xs:element name="UseDataRaw" type="xs:boolean" default="false" minOccurs="0"/>
+      <xs:element name="SendRedundantResendRequests" type="xs:boolean" default="true" minOccurs="0"/>
+      <xs:element name="RefreshOnLogon" type="xs:boolean" default="true" minOccurs="0"/>
+      <xs:element name="ValidateLengthAndChecksum" type="xs:boolean" default="true" minOccurs="0"/>
+      <xs:element name="ValidateCompID" type="xs:boolean" default="true" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- Logging configuration -->
+  <xs:complexType name="LoggingType">
+    <xs:sequence>
+      <xs:element name="FileLogPath" type="xs:string" default="logs/"/>
+      <xs:element name="FileStorePath" type="xs:string" default="store/"/>
+      <xs:element name="LogLevel" type="tns:LogLevelEnum" default="INFO" minOccurs="0"/>
+      <xs:element name="LogToConsole" type="xs:boolean" default="true" minOccurs="0"/>
+      <xs:element name="LogToFile" type="xs:boolean" default="true" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- Enumerations -->
+  <xs:simpleType name="ConnectionTypeEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="initiator"/>
+      <xs:enumeration value="acceptor"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="FixVersionEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="FIX.4.0"/>
+      <xs:enumeration value="FIX.4.1"/>
+      <xs:enumeration value="FIX.4.2"/>
+      <xs:enumeration value="FIX.4.3"/>
+      <xs:enumeration value="FIX.4.4"/>
+      <xs:enumeration value="FIX.5.0"/>
+      <xs:enumeration value="FIXT.1.1"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="LogLevelEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="DEBUG"/>
+      <xs:enumeration value="INFO"/>
+      <xs:enumeration value="WARN"/>
+      <xs:enumeration value="ERROR"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+</xs:schema>

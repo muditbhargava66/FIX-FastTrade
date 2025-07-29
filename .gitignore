@@ -1,11 +1,18 @@
-# Build directory
+# Build directories
 /build/
+/cmake-build-*/
+/out/
 
 # IDE files
 .vscode/
 .idea/
+.ideas/
+.Ideas/
 *.swp
 *.swo
+*.sublime-*
+.clangd/
+.ccls-cache/
 
 # Compiled Object files
 *.slo
@@ -56,12 +63,12 @@ dkms.conf
 /docs/_build/
 /docs/html/
 /docs/latex/
+/docs/doxygen/
 
 # Distribution / packaging
 MANIFEST
 *.egg-info/
 dist/
-build/
 eggs/
 parts/
 var/
@@ -80,43 +87,169 @@ lib64/
 .Trashes
 ehthumbs.db
 Thumbs.db
+desktop.ini
 
 # Python virtual environment
 venv/
+env/
 *.pyc
+*.pyo
 
 # CMake files
 CMakeCache.txt
 CMakeFiles/
 cmake_install.cmake
 install_manifest.txt
+CTestTestfile.cmake
+Testing/
 
-# Logs
+# Logs and temporary files
 *.log
-
-# Temporary files
 *.tmp
 *.bak
 *.swp
 *~.nib
+*~
 
 # Test coverage
 *.gcno
 *.gcda
 *.gcov
+coverage/
+*.lcov
 
 # Dependency directories
 node_modules/
 jspm_packages/
 
-# Optional npm cache directory
+# Package manager files
 .npm
+.yarn/
+.pnpm-store/
 
 # Optional eslint cache
 .eslintcache
 
-# Read the Docs
-.readthedocs.yml
+# Conan
+conandata.yml
+conaninfo.txt
+conanbuildinfo.*
+conan.lock
+
+# vcpkg
+vcpkg_installed/
+.vcpkg-root
+
+# Docker
+.dockerignore
 
 # Ignore .DS_Store files in all directories
 **/.DS_Store
+
+# Cache directories
+.cache/
+.ccache/
+
+# Backup files
+*.orig
+*.rej
+
+# Profiling data
+*.prof
+gmon.out
+
+# Core dumps
+core
+core.*
+
+# Valgrind
+*.valgrind
+
+# Address Sanitizer
+*.asan
+
+# Thread Sanitizer
+*.tsan
+
+# Memory Sanitizer
+*.msan
+
+# UBSan
+*.ubsan
+
+# Static analysis
+.clang-tidy-cache/
+.cppcheck/
+
+# Performance data
+*.perf
+*.trace
+
+# Local configuration
+local.properties
+.env
+.env.local
+
+# JetBrains
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# Visual Studio
+.vs/
+*.vcxproj.user
+*.vcxproj.filters
+
+# Xcode
+*.xcodeproj/
+*.xcworkspace/
+DerivedData/
+
+# Qt
+*.pro.user
+*.pro.user.*
+moc_*.cpp
+qrc_*.cpp
+ui_*.h
+Makefile*
+*build-*
+!docs/development/build-configuration-examples.rst
+!scripts/build-cross-platform.sh
+
+# Rust
+target/
+Cargo.lock
+
+# Go
+vendor/
+
+# Java
+*.class
+*.jar
+*.war
+*.ear
+
+# Temporary editor files
+*~
+.#*
+\#*#
+.*.swp
+.*.swo
+
+# Patch files
+*.patch
+*.diff
+
+# Archive files
+*.zip
+*.tar.gz
+*.tar.bz2
+*.tar.xz
+*.7z
+*.rar
+
+# Generated files
+version.h
+config.h
+*.generated.*
