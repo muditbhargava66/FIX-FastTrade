@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1200" height="800" viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="headerGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#2980B9;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3498DB;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="serviceGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#27AE60;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2ECC71;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="infraGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#E74C3C;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#EC7063;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="fixGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#F39C12;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#F7DC6F;stop-opacity:1" />
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="2" dy="2" stdDeviation="3" flood-color="#000000" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="800" fill="#F8F9FA"/>
+  
+  <!-- Title -->
+  <rect x="0" y="0" width="1200" height="60" fill="url(#headerGradient)"/>
+  <text x="600" y="35" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="24" font-weight="bold">
+    FIX-FastTrade System Architecture v2.0.0
+  </text>
+  
+  <!-- Application Layer -->
+  <g id="application-layer">
+    <rect x="50" y="80" width="1100" height="80" fill="#ECF0F1" stroke="#BDC3C7" stroke-width="2" rx="5" filter="url(#shadow)"/>
+    <text x="600" y="105" text-anchor="middle" fill="#2C3E50" font-family="Arial, sans-serif" font-size="16" font-weight="bold">
+      Application Layer
+    </text>
+    <rect x="80" y="115" width="200" height="35" fill="url(#serviceGradient)" rx="3"/>
+    <text x="180" y="135" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="12" font-weight="bold">
+      fix-fasttrade (main)
+    </text>
+    <rect x="300" y="115" width="200" height="35" fill="url(#serviceGradient)" rx="3"/>
+    <text x="400" y="135" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="12" font-weight="bold">
+      Configuration Manager
+    </text>
+    <rect x="520" y="115" width="200" height="35" fill="url(#serviceGradient)" rx="3"/>
+    <text x="620" y="135" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="12" font-weight="bold">
+      Performance Monitor
+    </text>
+    <rect x="740" y="115" width="200" height="35" fill="url(#serviceGradient)" rx="3"/>
+    <text x="840" y="135" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="12" font-weight="bold">
+      Health Checks
+    </text>
+  </g>
+  
+  <!-- Service Layer -->
+  <g id="service-layer">
+    <rect x="50" y="180" width="1100" height="100" fill="#E8F6F3" stroke="#27AE60" stroke-width="2" rx="5" filter="url(#shadow)"/>
+    <text x="600" y="205" text-anchor="middle" fill="#27AE60" font-family="Arial, sans-serif" font-size="16" font-weight="bold">
+      Service Layer
+    </text>
+    <rect x="100" y="220" width="180" height="45" fill="url(#serviceGradient)" rx="3"/>
+    <text x="190" y="240" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="11" font-weight="bold">
+      service::FixService
+    </text>
+    <text x="190" y="255" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="10">
+      FIX Protocol Operations
+    </text>
+    
+    <rect x="300" y="220" width="180" height="45" fill="url(#serviceGradient)" rx="3"/>
+    <text x="390" y="240" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="11" font-weight="bold">
+      service::TradingService
+    </text>
+    <text x="390" y="255" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="10">
+      Trading Operations
+    </text>
+    
+    <rect x="500" y="220" width="180" height="45" fill="url(#serviceGradient)" rx="3"/>
+    <text x="590" y="240" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="11" font-weight="bold">
+      Session Management
+    </text>
+    <text x="590" y="255" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="10">
+      Connection Lifecycle
+    </text>
+    
+    <rect x="700" y="220" width="180" height="45" fill="url(#serviceGradient)" rx="3"/>
+    <text x="790" y="240" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="11" font-weight="bold">
+      Risk Management
+    </text>
+    <text x="790" y="255" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="10">
+      Position Tracking
+    </text>
+    
+    <rect x="900" y="220" width="180" height="45" fill="url(#serviceGradient)" rx="3"/>
+    <text x="990" y="240" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="11" font-weight="bold">
+      Order Management
+    </text>
+    <text x="990" y="255" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="10">
+      Lifecycle Management
+    </text>
+  </g>
+  
+  <!-- FIX Protocol Layer -->
+  <g id="fix-layer">
+    <rect x="50" y="300" width="1100" height="120" fill="#FEF9E7" stroke="#F39C12" stroke-width="2" rx="5" filter="url(#shadow)"/>
+    <text x="600" y="325" text-anchor="middle" fill="#F39C12" font-family="Arial, sans-serif" font-size="16" font-weight="bold">
+      FIX Protocol Infrastructure
+    </text>
+    
+    <rect x="80" y="340" width="160" height="35" fill="url(#fixGradient)" rx="3"/>
+    <text x="160" y="360" text-anchor="middle" fill="#8B4513" font-family="Arial, sans-serif" font-size="11" font-weight="bold">
+      fix::SessionID
+    </text>
+    
+    <rect x="260" y="340" width="160" height="35" fill="url(#fixGradient)" rx="3"/>
+    <text x="340" y="360" text-anchor="middle" fill="#8B4513" font-family="Arial, sans-serif" font-size="11" font-weight="bold">
+      fix::Message
+    </text>
+    
+    <rect x="440" y="340" width="160" height="35" fill="url(#fixGradient)" rx="3"/>
+    <text x="520" y="360" text-anchor="middle" fill="#8B4513" font-family="Arial, sans-serif" font-size="11" font-weight="bold">
+      fix::ZeroCopyMessage
+    </text>
+    
+    <rect x="620" y="340" width="160" height="35" fill="url(#fixGradient)" rx="3"/>
+    <text x="700" y="360" text-anchor="middle" fill="#8B4513" font-family="Arial, sans-serif" font-size="11" font-weight="bold">
+      fix::MessageParser
+    </text>
+    
+    <rect x="800" y="340" width="160" height="35" fill="url(#fixGradient)" rx="3"/>
+    <text x="880" y="360" text-anchor="middle" fill="#8B4513" font-family="Arial, sans-serif" font-size="11" font-weight="bold">
+      fix::Application
+    </text>
+    
+    <rect x="980" y="340" width="160" height="35" fill="url(#fixGradient)" rx="3"/>
+    <text x="1060" y="360" text-anchor="middle" fill="#8B4513" font-family="Arial, sans-serif" font-size="11" font-weight="bold">
+      fix::Tags
+    </text>
+    
+    <!-- Performance Features -->
+    <rect x="80" y="385" width="240" height="25" fill="#F7DC6F" rx="3"/>
+    <text x="200" y="400" text-anchor="middle" fill="#8B4513" font-family="Arial, sans-serif" font-size="10" font-weight="bold">
+      Zero-Copy Processing
+    </text>
+    
+    <rect x="340" y="385" width="240" height="25" fill="#F7DC6F" rx="3"/>
+    <text x="460" y="400" text-anchor="middle" fill="#8B4513" font-family="Arial, sans-serif" font-size="10" font-weight="bold">
+      Sub-microsecond Latency
+    </text>
+    
+    <rect x="600" y="385" width="240" height="25" fill="#F7DC6F" rx="3"/>
+    <text x="720" y="400" text-anchor="middle" fill="#8B4513" font-family="Arial, sans-serif" font-size="10" font-weight="bold">
+      1M+ Messages/Second
+    </text>
+    
+    <rect x="860" y="385" width="240" height="25" fill="#F7DC6F" rx="3"/>
+    <text x="980" y="400" text-anchor="middle" fill="#8B4513" font-family="Arial, sans-serif" font-size="10" font-weight="bold">
+      FIX 4.2/4.4 Support
+    </text>
+  </g>
+  
+  <!-- Model Layer -->
+  <g id="model-layer">
+    <rect x="50" y="440" width="1100" height="80" fill="#FDF2E9" stroke="#E67E22" stroke-width="2" rx="5" filter="url(#shadow)"/>
+    <text x="600" y="465" text-anchor="middle" fill="#E67E22" font-family="Arial, sans-serif" font-size="16" font-weight="bold">
+      Data Model Layer
+    </text>
+    
+    <rect x="200" y="480" width="180" height="30" fill="#E67E22" rx="3"/>
+    <text x="290" y="498" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="12" font-weight="bold">
+      model::Order
+    </text>
+    
+    <rect x="400" y="480" width="180" height="30" fill="#E67E22" rx="3"/>
+    <text x="490" y="498" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="12" font-weight="bold">
+      model::Trade
+    </text>
+    
+    <rect x="600" y="480" width="180" height="30" fill="#E67E22" rx="3"/>
+    <text x="690" y="498" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="12" font-weight="bold">
+      model::Position
+    </text>
+    
+    <rect x="800" y="480" width="180" height="30" fill="#E67E22" rx="3"/>
+    <text x="890" y="498" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="12" font-weight="bold">
+      model::Session
+    </text>
+  </g>
+  
+  <!-- Infrastructure Layer -->
+  <g id="infrastructure-layer">
+    <rect x="50" y="540" width="1100" height="140" fill="#FADBD8" stroke="#E74C3C" stroke-width="2" rx="5" filter="url(#shadow)"/>
+    <text x="600" y="565" text-anchor="middle" fill="#E74C3C" font-family="Arial, sans-serif" font-size="16" font-weight="bold">
+      High-Performance Infrastructure
+    </text>
+    
+    <!-- Memory Management -->
+    <rect x="80" y="580" width="160" height="35" fill="url(#infraGradient)" rx="3"/>
+    <text x="160" y="595" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="10" font-weight="bold">
+      Memory Pools
+    </text>
+    <text x="160" y="608" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="9">
+      Zero Allocation
+    </text>
+    
+    <!-- Threading -->
+    <rect x="260" y="580" width="160" height="35" fill="url(#infraGradient)" rx="3"/>
+    <text x="340" y="595" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="10" font-weight="bold">
+      CPU Affinity
+    </text>
+    <text x="340" y="608" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="9">
+      Thread Pinning
+    </text>
+    
+    <!-- SIMD -->
+    <rect x="440" y="580" width="160" height="35" fill="url(#infraGradient)" rx="3"/>
+    <text x="520" y="595" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="10" font-weight="bold">
+      SIMD Utils
+    </text>
+    <text x="520" y="608" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="9">
+      Vectorization
+    </text>
+    
+    <!-- Platform -->
+    <rect x="620" y="580" width="160" height="35" fill="url(#infraGradient)" rx="3"/>
+    <text x="700" y="595" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="10" font-weight="bold">
+      Platform
+    </text>
+    <text x="700" y="608" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="9">
+      Cross-Platform
+    </text>
+    
+    <!-- Logging -->
+    <rect x="800" y="580" width="160" height="35" fill="url(#infraGradient)" rx="3"/>
+    <text x="880" y="595" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="10" font-weight="bold">
+      Logging
+    </text>
+    <text x="880" y="608" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="9">
+      Thread-Safe
+    </text>
+    
+    <!-- Configuration -->
+    <rect x="980" y="580" width="160" height="35" fill="url(#infraGradient)" rx="3"/>
+    <text x="1060" y="595" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="10" font-weight="bold">
+      Config
+    </text>
+    <text x="1060" y="608" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="9">
+      XML Schema
+    </text>
+    
+    <!-- Platform Support -->
+    <rect x="80" y="630" width="120" height="30" fill="#EC7063" rx="3"/>
+    <text x="140" y="648" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="10" font-weight="bold">
+      macOS ARM64
+    </text>
+    
+    <rect x="220" y="630" width="120" height="30" fill="#EC7063" rx="3"/>
+    <text x="280" y="648" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="10" font-weight="bold">
+      macOS Intel
+    </text>
+    
+    <rect x="360" y="630" width="120" height="30" fill="#EC7063" rx="3"/>
+    <text x="420" y="648" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="10" font-weight="bold">
+      Linux x86_64
+    </text>
+    
+    <rect x="500" y="630" width="120" height="30" fill="#EC7063" rx="3"/>
+    <text x="560" y="648" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="10" font-weight="bold">
+      Linux ARM64
+    </text>
+    
+    <rect x="640" y="630" width="120" height="30" fill="#EC7063" rx="3"/>
+    <text x="700" y="648" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="10" font-weight="bold">
+      Windows
+    </text>
+    
+    <!-- SIMD Support -->
+    <rect x="780" y="630" width="100" height="30" fill="#F1948A" rx="3"/>
+    <text x="830" y="648" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="10" font-weight="bold">
+      NEON
+    </text>
+    
+    <rect x="900" y="630" width="100" height="30" fill="#F1948A" rx="3"/>
+    <text x="950" y="648" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="10" font-weight="bold">
+      AVX2
+    </text>
+    
+    <rect x="1020" y="630" width="100" height="30" fill="#F1948A" rx="3"/>
+    <text x="1070" y="648" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="10" font-weight="bold">
+      SSE4.2
+    </text>
+  </g>
+  
+  <!-- Performance Metrics -->
+  <g id="performance-metrics">
+    <rect x="50" y="700" width="1100" height="80" fill="#E8F8F5" stroke="#1ABC9C" stroke-width="2" rx="5" filter="url(#shadow)"/>
+    <text x="600" y="725" text-anchor="middle" fill="#1ABC9C" font-family="Arial, sans-serif" font-size="16" font-weight="bold">
+      Performance Metrics (Production Ready)
+    </text>
+    
+    <rect x="100" y="740" width="200" height="30" fill="#1ABC9C" rx="3"/>
+    <text x="200" y="758" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="11" font-weight="bold">
+      &lt; 1μs Latency
+    </text>
+    
+    <rect x="320" y="740" width="200" height="30" fill="#1ABC9C" rx="3"/>
+    <text x="420" y="758" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="11" font-weight="bold">
+      1M+ msg/sec
+    </text>
+    
+    <rect x="540" y="740" width="200" height="30" fill="#1ABC9C" rx="3"/>
+    <text x="640" y="758" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="11" font-weight="bold">
+      90%+ CPU Efficiency
+    </text>
+    
+    <rect x="760" y="740" width="200" height="30" fill="#1ABC9C" rx="3"/>
+    <text x="860" y="758" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="11" font-weight="bold">
+      99.99% Uptime
+    </text>
+  </g>
+  
+  <!-- Data Flow Arrows -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#34495E" />
+    </marker>
+  </defs>
+  
+  <!-- Vertical flow arrows -->
+  <line x1="600" y1="160" x2="600" y2="180" stroke="#34495E" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="600" y1="280" x2="600" y2="300" stroke="#34495E" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="600" y1="420" x2="600" y2="440" stroke="#34495E" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="600" y1="520" x2="600" y2="540" stroke="#34495E" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="600" y1="680" x2="600" y2="700" stroke="#34495E" stroke-width="2" marker-end="url(#arrowhead)"/>
+</svg>

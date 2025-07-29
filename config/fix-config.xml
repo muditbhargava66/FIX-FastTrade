@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FixConfiguration xmlns="http://fix-fasttrade.org/config"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://fix-fasttrade.org/config schemas/fix-config.xsd">
+
+  <!-- Connection Configuration -->
+  <Connection>
+    <Type>initiator</Type>
+    <Host>localhost</Host>
+    <Port>9878</Port>
+    <HeartBtInt>30</HeartBtInt>
+    <ReconnectInterval>5</ReconnectInterval>
+    <SocketNoDelay>true</SocketNoDelay>
+    <SocketSendBufferSize>8388608</SocketSendBufferSize>
+    <SocketReceiveBufferSize>8388608</SocketReceiveBufferSize>
+  </Connection>
+
+  <!-- Session Configuration -->
+  <Session>
+    <BeginString>FIX.4.4</BeginString>
+    <SenderCompID>FIXFASTTRADE</SenderCompID>
+    <TargetCompID>EXCHANGE</TargetCompID>
+    <SessionQualifier>PROD</SessionQualifier>
+    <StartTime>00:00:00</StartTime>
+    <EndTime>23:59:59</EndTime>
+    <UseLocalTime>true</UseLocalTime>
+    <PersistMessages>true</PersistMessages>
+    <ResetOnLogon>false</ResetOnLogon>
+    <ResetOnLogout>false</ResetOnLogout>
+    <ResetOnDisconnect>false</ResetOnDisconnect>
+  </Session>
+
+  <!-- Performance Configuration -->
+  <Performance>
+    <CheckLatency>true</CheckLatency>
+    <MillisecondsInTimeStamp>true</MillisecondsInTimeStamp>
+    <ValidateFieldsOutOfOrder>false</ValidateFieldsOutOfOrder>
+    <ValidateFieldsHaveValues>false</ValidateFieldsHaveValues>
+    <ValidateUserDefinedFields>false</ValidateUserDefinedFields>
+    <AllowUnknownMsgFields>true</AllowUnknownMsgFields>
+    <PreserveMessageFieldsOrder>false</PreserveMessageFieldsOrder>
+    <UseDataRaw>true</UseDataRaw>
+    <SendRedundantResendRequests>false</SendRedundantResendRequests>
+    <RefreshOnLogon>false</RefreshOnLogon>
+    <ValidateLengthAndChecksum>false</ValidateLengthAndChecksum>
+    <ValidateCompID>true</ValidateCompID>
+  </Performance>
+
+  <!-- Logging Configuration -->
+  <Logging>
+    <FileLogPath>logs/</FileLogPath>
+    <FileStorePath>store/</FileStorePath>
+    <LogLevel>INFO</LogLevel>
+    <LogToConsole>true</LogToConsole>
+    <LogToFile>true</LogToFile>
+  </Logging>
+
+</FixConfiguration>

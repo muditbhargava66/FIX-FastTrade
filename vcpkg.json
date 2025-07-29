@@ -1,0 +1,62 @@
+{
+  "name": "fix-fasttrade",
+  "version": "2.0.0",
+  "description": "Ultra-low latency FIX protocol trading system",
+  "homepage": "https://github.com/muditbhargava66/FIX-FastTrade",
+  "license": "MIT",
+  "dependencies": [
+    {
+      "name": "boost-system",
+      "version>=": "1.71.0"
+    },
+    {
+      "name": "boost-thread",
+      "version>=": "1.71.0"
+    },
+    {
+      "name": "boost-filesystem",
+      "version>=": "1.71.0"
+    },
+    {
+      "name": "boost-date-time",
+      "version>=": "1.71.0"
+    },
+    {
+      "name": "boost-program-options",
+      "version>=": "1.71.0"
+    },
+    {
+      "name": "boost-asio",
+      "version>=": "1.71.0"
+    },
+    {
+      "name": "gtest",
+      "version>=": "1.10.0"
+    },
+    {
+      "name": "spdlog",
+      "version>=": "1.10.0"
+    },
+    {
+      "name": "tbb",
+      "version>=": "2021.5.0",
+      "platform": "!osx"
+    },
+    {
+      "name": "benchmark",
+      "version>=": "1.7.0"
+    }
+  ],
+  "features": {
+    "simd": {
+      "description": "Enable SIMD optimizations",
+      "dependencies": []
+    },
+    "benchmarks": {
+      "description": "Enable performance benchmarks",
+      "dependencies": [
+        "benchmark"
+      ]
+    }
+  }
+}

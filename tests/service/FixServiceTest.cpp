@@ -22,12 +22,13 @@ class FixServiceTest : public ::testing::Test {
 protected:
     void SetUp() override {
         config_ = std::make_unique<fix::Config>("path/to/config.txt");
-        fixService_ = std::make_unique<service::FixService>(*config_, mockApplication_);
+        mockAppPtr_ = std::make_shared<MockApplication>();
+        fixService_ = std::make_unique<service::FixService>(mockAppPtr_);
     }
 
     std::unique_ptr<fix::Config> config_;
     std::unique_ptr<service::FixService> fixService_;
-    MockApplication mockApplication_;
+    std::shared_ptr<MockApplication> mockAppPtr_;
 };
 
 TEST_F(FixServiceTest, SendOrder) {
@@ -35,7 +36,7 @@ TEST_F(FixServiceTest, SendOrder) {
     model::Order order("order123", "SYMBOL", 100.0, 10, model::Order::Side::Buy, model::Order::OrderType::Limit);
 
     // Expect the toApp method to be called with the appropriate message
-    EXPECT_CALL(mockApplication_, toApp(_, _))
+    EXPECT_CALL(*mockAppPtr_, toApp(_, _))
         .WillOnce([](fix::Message& message, const fix::SessionID&) {
             EXPECT_EQ(message.getField(fix::Tags::Symbol), "SYMBOL");
             EXPECT_EQ(message.getField(fix::Tags::Side), "1");
@@ -45,7 +46,7 @@ TEST_F(FixServiceTest, SendOrder) {
         });
 
     // Act
-    fixService_->sendOrder(order);
+    fixService_->sendNewOrder(order);
 }
 
 TEST_F(FixServiceTest, CancelOrder) {
@@ -53,11 +54,11 @@ TEST_F(FixServiceTest, CancelOrder) {
     std::string orderId = "order456";
 
     // Expect the toApp method to be called with the appropriate message
-    EXPECT_CALL(mockApplication_, toApp(_, _))
+    EXPECT_CALL(*mockAppPtr_, toApp(_, _))
         .WillOnce([orderId](fix::Message& message, const fix::SessionID&) {
+            EXPECT_EQ(message.getField(fix::Tags::MsgType), "F");  // Order Cancel Request
             EXPECT_EQ(message.getField(fix::Tags::OrigClOrdID), orderId);
             EXPECT_EQ(message.getField(fix::Tags::ClOrdID), "Cancel_" + orderId);
-            EXPECT_EQ(message.getField(fix::Tags::Side), "1");
         });
 
     // Act

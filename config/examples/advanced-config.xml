@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FixConfiguration xmlns="http://fix-fasttrade.org/config"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://fix-fasttrade.org/config ../schemas/fix-config.xsd">
+
+  <!-- Advanced Connection Configuration -->
+  <Connection>
+    <Type>initiator</Type>
+    <Host>fix.exchange.com</Host>
+    <Port>9878</Port>
+    <HeartBtInt>30</HeartBtInt>
+    <ReconnectInterval>5</ReconnectInterval>
+    <SocketNoDelay>true</SocketNoDelay>
+    <SocketSendBufferSize>16777216</SocketSendBufferSize>
+    <SocketReceiveBufferSize>16777216</SocketReceiveBufferSize>
+  </Connection>
+
+  <!-- Advanced Session Configuration -->
+  <Session>
+    <BeginString>FIX.4.4</BeginString>
+    <SenderCompID>FIXFASTTRADE_PROD</SenderCompID>
+    <TargetCompID>EXCHANGE_GATEWAY</TargetCompID>
+    <SessionQualifier>PROD_TRADING</SessionQualifier>
+    <StartTime>06:00:00</StartTime>
+    <EndTime>18:00:00</EndTime>
+    <UseLocalTime>false</UseLocalTime>
+    <PersistMessages>true</PersistMessages>
+    <ResetOnLogon>false</ResetOnLogon>
+    <ResetOnLogout>true</ResetOnLogout>
+    <ResetOnDisconnect>false</ResetOnDisconnect>
+  </Session>
+
+  <!-- High-Performance Configuration -->
+  <Performance>
+    <CheckLatency>true</CheckLatency>
+    <MillisecondsInTimeStamp>true</MillisecondsInTimeStamp>
+    <ValidateFieldsOutOfOrder>false</ValidateFieldsOutOfOrder>
+    <ValidateFieldsHaveValues>false</ValidateFieldsHaveValues>
+    <ValidateUserDefinedFields>false</ValidateUserDefinedFields>
+    <AllowUnknownMsgFields>true</AllowUnknownMsgFields>
+    <PreserveMessageFieldsOrder>false</PreserveMessageFieldsOrder>
+    <UseDataRaw>true</UseDataRaw>
+    <SendRedundantResendRequests>false</SendRedundantResendRequests>
+    <RefreshOnLogon>false</RefreshOnLogon>
+    <ValidateLengthAndChecksum>false</ValidateLengthAndChecksum>
+    <ValidateCompID>true</ValidateCompID>
+  </Performance>
+
+  <!-- Comprehensive Logging Configuration -->
+  <Logging>
+    <FileLogPath>logs/production/</FileLogPath>
+    <FileStorePath>store/production/</FileStorePath>
+    <LogLevel>WARN</LogLevel>
+    <LogToConsole>false</LogToConsole>
+    <LogToFile>true</LogToFile>
+  </Logging>
+
+</FixConfiguration>

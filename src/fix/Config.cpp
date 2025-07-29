@@ -1,6 +1,12 @@
+/**
+ * @file Config.cpp
+ * @brief Simple configuration file parser
+ */
+
 #include "fix/Config.h"
 #include <fstream>
-#include <stdexcept>
+#include <sstream>
+#include <algorithm>
 
 namespace fix {
 
@@ -9,39 +15,44 @@ Config::Config(const std::string& configFilePath) {
 }
 
 void Config::loadFromFile(const std::string& configFilePath) {
-    std::ifstream configFile(configFilePath);
-    if (!configFile) {
-        throw std::runtime_error("Failed to open config file: " + configFilePath);
+    std::ifstream file(configFilePath);
+    if (!file.is_open()) {
+        // If file doesn't exist, use defaults
+        return;
     }
-
+    
     std::string line;
-    while (std::getline(configFile, line)) {
+    while (std::getline(file, line)) {
+        line = trim(line);
+        
+        // Skip empty lines and comments
         if (line.empty() || line[0] == '#') {
-            continue;  // Skip empty lines and comments
+            continue;
         }
-
-        size_t delimiterPos = line.find('=');
-        if (delimiterPos == std::string::npos) {
-            throw std::runtime_error("Invalid config line: " + line);
+        
+        // Parse key=value pairs
+        size_t pos = line.find('=');
+        if (pos != std::string::npos) {
+            std::string key = trim(line.substr(0, pos));
+            std::string value = trim(line.substr(pos + 1));
+            settings_[key] = value;
         }
-
-        std::string key = line.substr(0, delimiterPos);
-        std::string value = line.substr(delimiterPos + 1);
-
-        // Trim whitespace from key and value
-        key = trim(key);
-        value = trim(value);
-
-        settings_[key] = value;
     }
+}
+
+std::string Config::trim(const std::string& str) {
+    size_t start = str.find_first_not_of(" \t\r\n");
+    if (start == std::string::npos) {
+        return "";
+    }
+    
+    size_t end = str.find_last_not_of(" \t\r\n");
+    return str.substr(start, end - start + 1);
 }
 
 std::string Config::getString(const std::string& key, const std::string& defaultValue) const {
     auto it = settings_.find(key);
-    if (it != settings_.end()) {
-        return it->second;
-    }
-    return defaultValue;
+    return (it != settings_.end()) ? it->second : defaultValue;
 }
 
 int Config::getInt(const std::string& key, int defaultValue) const {
@@ -49,8 +60,8 @@ int Config::getInt(const std::string& key, int defaultValue) const {
     if (it != settings_.end()) {
         try {
             return std::stoi(it->second);
-        } catch (const std::exception&) {
-            // Fallback to default value if conversion fails
+        } catch (...) {
+            return defaultValue;
         }
     }
     return defaultValue;
@@ -60,23 +71,10 @@ bool Config::getBool(const std::string& key, bool defaultValue) const {
     auto it = settings_.find(key);
     if (it != settings_.end()) {
         std::string value = it->second;
-        if (value == "true" || value == "1") {
-            return true;
-        } else if (value == "false" || value == "0") {
-            return false;
-        }
-        // Fallback to default value if value is not recognized
+        std::transform(value.begin(), value.end(), value.begin(), ::tolower);
+        return (value == "true" || value == "1" || value == "yes");
     }
     return defaultValue;
 }
 
-std::string Config::trim(const std::string& str) {
-    size_t first = str.find_first_not_of(' ');
-    if (first == std::string::npos) {
-        return "";
-    }
-    size_t last = str.find_last_not_of(' ');
-    return str.substr(first, last - first + 1);
-}
-
-}  // namespace fix
+} // namespace fix

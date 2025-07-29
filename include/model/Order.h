@@ -11,6 +11,9 @@ public:
     enum class OrderType { Market, Limit, Stop, StopLimit };
     enum class OrderStatus { New, Accepted, Rejected, PartiallyFilled, Filled, Cancelled };
 
+    // Default constructor for pool allocation
+    Order() = default;
+    
     Order(const std::string& id, const std::string& symbol, double price, int quantity,
           Side side, OrderType type);
 

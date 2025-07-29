@@ -1,0 +1,105 @@
+/* Custom CSS for FIX-FastTrade Documentation */
+
+/* Brand colors */
+:root {
+    --primary-color: #2980B9;
+    --secondary-color: #27AE60;
+    --accent-color: #E74C3C;
+    --success-color: #27AE60;
+    --warning-color: #F39C12;
+    --info-color: #3498DB;
+}
+
+/* Logo and branding */
+.wy-side-nav-search {
+    background-color: var(--primary-color);
+}
+
+.wy-side-nav-search .wy-dropdown > a img.logo {
+    max-width: 100%;
+    height: auto;
+    margin: 10px 0;
+}
+
+/* Navigation improvements */
+.wy-nav-content-wrap {
+    margin-left: 300px;
+}
+
+.wy-nav-side {
+    width: 300px;
+}
+
+/* Code blocks */
+.highlight {
+    background: #f8f8f8;
+    border: 1px solid #e1e4e5;
+    border-radius: 4px;
+    margin: 1em 0;
+}
+
+.highlight pre {
+    padding: 12px;
+    margin: 0;
+    overflow-x: auto;
+}
+
+/* Performance metrics table */
+.performance-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1em 0;
+}
+
+.performance-table th,
+.performance-table td {
+    border: 1px solid #ddd;
+    padding: 8px 12px;
+    text-align: left;
+}
+
+.performance-table th {
+    background-color: var(--primary-color);
+    color: white;
+    font-weight: bold;
+}
+
+.performance-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Status badges */
+.status-badge {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.85em;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.status-badge.success {
+    background-color: var(--success-color);
+    color: white;
+}
+
+.status-badge.warning {
+    background-color: var(--warning-color);
+    color: white;
+}
+
+.status-badge.info {
+    background-color: var(--info-color);
+    color: white;
+}
+
+/* Responsive design */
+@media screen and (max-width: 768px) {
+    .wy-nav-content-wrap {
+        margin-left: 0;
+    }
+    
+    .wy-nav-side {
+        left: -300px;
+    }
+}

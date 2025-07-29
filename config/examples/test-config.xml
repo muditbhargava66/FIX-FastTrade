@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FixConfiguration xmlns="http://fix-fasttrade.org/config"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://fix-fasttrade.org/config ../schemas/fix-config.xsd">
+
+  <!-- Test Connection Configuration -->
+  <Connection>
+    <Type>initiator</Type>
+    <Host>127.0.0.1</Host>
+    <Port>9999</Port>
+    <HeartBtInt>10</HeartBtInt>
+    <ReconnectInterval>1</ReconnectInterval>
+    <SocketNoDelay>true</SocketNoDelay>
+    <SocketSendBufferSize>1048576</SocketSendBufferSize>
+    <SocketReceiveBufferSize>1048576</SocketReceiveBufferSize>
+  </Connection>
+
+  <!-- Test Session Configuration -->
+  <Session>
+    <BeginString>FIX.4.4</BeginString>
+    <SenderCompID>TEST_CLIENT</SenderCompID>
+    <TargetCompID>TEST_SERVER</TargetCompID>
+    <SessionQualifier>TEST</SessionQualifier>
+    <StartTime>00:00:00</StartTime>
+    <EndTime>23:59:59</EndTime>
+    <UseLocalTime>true</UseLocalTime>
+    <PersistMessages>false</PersistMessages>
+    <ResetOnLogon>true</ResetOnLogon>
+    <ResetOnLogout>true</ResetOnLogout>
+    <ResetOnDisconnect>true</ResetOnDisconnect>
+  </Session>
+
+  <!-- Test Performance Configuration (Validation Enabled) -->
+  <Performance>
+    <CheckLatency>false</CheckLatency>
+    <MillisecondsInTimeStamp>false</MillisecondsInTimeStamp>
+    <ValidateFieldsOutOfOrder>true</ValidateFieldsOutOfOrder>
+    <ValidateFieldsHaveValues>true</ValidateFieldsHaveValues>
+    <ValidateUserDefinedFields>true</ValidateUserDefinedFields>
+    <AllowUnknownMsgFields>false</AllowUnknownMsgFields>
+    <PreserveMessageFieldsOrder>true</PreserveMessageFieldsOrder>
+    <UseDataRaw>false</UseDataRaw>
+    <SendRedundantResendRequests>true</SendRedundantResendRequests>
+    <RefreshOnLogon>true</RefreshOnLogon>
+    <ValidateLengthAndChecksum>true</ValidateLengthAndChecksum>
+    <ValidateCompID>true</ValidateCompID>
+  </Performance>
+
+  <!-- Test Logging Configuration (Verbose) -->
+  <Logging>
+    <FileLogPath>logs/test/</FileLogPath>
+    <FileStorePath>store/test/</FileStorePath>
+    <LogLevel>DEBUG</LogLevel>
+    <LogToConsole>true</LogToConsole>
+    <LogToFile>true</LogToFile>
+  </Logging>
+
+</FixConfiguration>

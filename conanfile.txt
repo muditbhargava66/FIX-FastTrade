@@ -1,0 +1,22 @@
+[requires]
+boost/1.88.0
+gtest/1.14.0
+spdlog/1.12.0
+tbb/2021.11.0
+
+[generators]
+CMakeDeps
+CMakeToolchain
+
+[options]
+boost:shared=False
+boost:header_only=False
+boost:without_test=True
+gtest:shared=False
+spdlog:shared=False
+tbb:shared=False
+
+[imports]
+bin, *.dll -> ./bin
+lib, *.dylib* -> ./lib
+lib, *.so* -> ./lib

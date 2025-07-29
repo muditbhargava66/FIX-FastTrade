@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FixConfiguration xmlns="http://fix-fasttrade.org/config"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://fix-fasttrade.org/config ../schemas/fix-config.xsd">
+
+  <!-- Basic Connection Configuration -->
+  <Connection>
+    <Type>initiator</Type>
+    <Host>localhost</Host>
+    <Port>5001</Port>
+    <HeartBtInt>30</HeartBtInt>
+    <ReconnectInterval>5</ReconnectInterval>
+  </Connection>
+
+  <!-- Basic Session Configuration -->
+  <Session>
+    <BeginString>FIX.4.4</BeginString>
+    <SenderCompID>CLIENT</SenderCompID>
+    <TargetCompID>SERVER</TargetCompID>
+  </Session>
+
+  <!-- Basic Logging Configuration -->
+  <Logging>
+    <FileLogPath>logs/</FileLogPath>
+    <FileStorePath>store/</FileStorePath>
+    <LogLevel>INFO</LogLevel>
+    <LogToConsole>true</LogToConsole>
+    <LogToFile>true</LogToFile>
+  </Logging>
+
+</FixConfiguration>

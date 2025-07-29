@@ -1,0 +1,77 @@
+{
+    "performance": {
+        "cpu_affinity": {
+            "enabled": true,
+            "main_thread": 0,
+            "fix_engine_thread": 1,
+            "order_processing_thread": 2,
+            "market_data_thread": 3,
+            "analytics_thread": 4,
+            "avoid_hyperthreads": true,
+            "isolate_cores": false
+        },
+        "memory": {
+            "preallocate_messages": 100000,
+            "preallocate_orders": 50000,
+            "preallocate_trades": 50000,
+            "use_huge_pages": true,
+            "lock_pages_in_memory": true,
+            "memory_pool_growth_factor": 2,
+            "zero_copy_threshold": 1024
+        },
+        "networking": {
+            "tcp_nodelay": true,
+            "tcp_quickack": true,
+            "kernel_bypass": false,
+            "receive_buffer_size": 8388608,
+            "send_buffer_size": 8388608,
+            "socket_reuse": true,
+            "busy_poll_usecs": 50,
+            "interrupt_coalescing": {
+                "enabled": true,
+                "rx_usecs": 10,
+                "tx_usecs": 10
+            }
+        },
+        "threading": {
+            "use_spinlocks": true,
+            "spinlock_iterations": 1000,
+            "thread_priority": "realtime",
+            "scheduler_policy": "SCHED_FIFO",
+            "stack_size": 8388608
+        },
+        "queues": {
+            "order_queue_size": 100000,
+            "market_data_queue_size": 500000,
+            "execution_queue_size": 100000,
+            "use_lock_free": true,
+            "use_spsc_optimization": true
+        }
+    },
+    "latency_targets": {
+        "fix_parsing": "5us",
+        "order_validation": "3us",
+        "risk_check": "10us",
+        "order_acknowledgment": "15us",
+        "total_tick_to_trade": "50us",
+        "market_data_processing": "2us"
+    },
+    "monitoring": {
+        "enable_latency_tracking": true,
+        "latency_percentiles": [50, 90, 95, 99, 99.9, 99.99],
+        "latency_history_size": 1000000,
+        "statistics_interval_seconds": 60,
+        "enable_detailed_logging": false,
+        "performance_counters": {
+            "enabled": true,
+            "sample_rate": 1000
+        }
+    },
+    "optimization_hints": {
+        "prefetch_distance": 2,
+        "cache_line_size": 64,
+        "use_branch_prediction_hints": true,
+        "inline_threshold": 100,
+        "unroll_loops": true
+    }
+}

@@ -1,115 +1,289 @@
-# Project name
+# Doxyfile configuration for FIX-FastTrade
+# This file is processed by CMake to generate the final Doxyfile
+
+#---------------------------------------------------------------------------
+# Project related configuration options
+#---------------------------------------------------------------------------
+
+# Project name and version
 PROJECT_NAME = "FIX-FastTrade"
+PROJECT_NUMBER = @PROJECT_VERSION@
+PROJECT_BRIEF = "Ultra-low latency FIX protocol trading system"
 
 # Output directory
-OUTPUT_DIRECTORY = @CMAKE_CURRENT_BINARY_DIR@/docs
+OUTPUT_DIRECTORY = @CMAKE_BINARY_DIR@/docs
 
 # Input files and directories
 INPUT = @CMAKE_SOURCE_DIR@/include \
         @CMAKE_SOURCE_DIR@/src \
-        @CMAKE_SOURCE_DIR@/docs
+        @CMAKE_SOURCE_DIR@/README.md \
+        @CMAKE_SOURCE_DIR@/docs/api \
+        @CMAKE_SOURCE_DIR@/docs/design
 
-# Recursive search
+# Recursive search in input directories
 RECURSIVE = YES
 
-# Extract all code comments
-EXTRACT_ALL = YES
-
-# Generate HTML documentation
-GENERATE_HTML = YES
-HTML_OUTPUT = html
-
-# Disable LaTeX generation
-GENERATE_LATEX = NO
-
-# Use the default style sheet
-HTML_STYLESHEET = 
-
-# Enable source code browsing
-SOURCE_BROWSER = YES
-
-# Enable class diagrams
-CLASS_DIAGRAMS = YES
-
-# Generate class collaboration diagrams
-COLLABORATION_GRAPH = YES
-
-# Include private members in the documentation
-EXTRACT_PRIVATE = YES
-
-# Include static members in the documentation
-EXTRACT_STATIC = YES
-
-# Strip namespaces from symbols
-HIDE_NAMESPACES = NO
-
-# Strip function signatures from the documentation
-HIDE_FUNCTION_SIGNATURES = NO
-
-# Generate documentation for undocumented members
-EXTRACT_ANON_NSPACES = YES
-
-# Generate documentation for undocumented classes
-EXTRACT_LOCAL_CLASSES = YES
-
-# Enable preprocessing of source files
-ENABLE_PREPROCESSING = YES
-
-# Define preprocessor macros
-PREDEFINED = 
-
-# Expand references to external documentation
-EXTERNAL_GROUPS = YES
-EXTERNAL_PAGES = YES
-
-# Generate a TODO list
-GENERATE_TODOLIST = YES
-
-# Generate a test list
-GENERATE_TESTLIST = YES
-
-# Generate a bug list
-GENERATE_BUGLIST = YES
-
-# Generate a deprecation list
-GENERATE_DEPRECATEDLIST = YES
-
-# Output language for the documentation
-OUTPUT_LANGUAGE = English
-
-# Enable search capabilities
-SEARCHENGINE = YES
-
-# Path to additional search mappings
-SEARCHDATA_FILE = @CMAKE_CURRENT_BINARY_DIR@/searchdata.xml
-
-# Specify the file patterns for the input files
+# File patterns to include
 FILE_PATTERNS = *.h \
                 *.hpp \
                 *.cpp \
+                *.cc \
+                *.cxx \
                 *.md
 
-# Specify the file patterns for the excluded files
-EXCLUDE_PATTERNS =
+# Exclude patterns (third-party code, build directories)
+EXCLUDE_PATTERNS = */third_party/* \
+                   */build/* \
+                   */cmake-build-* \
+                   */.git/* \
+                   */tests/googletest/* \
+                   */tests/benchmark/*
 
-# Specify the file patterns for the example files
-EXAMPLE_PATTERNS =
+# Use README.md as main page
+USE_MDFILE_AS_MAINPAGE = @CMAKE_SOURCE_DIR@/README.md
 
-# Specify the path to the example source files
-EXAMPLE_PATH =
+#---------------------------------------------------------------------------
+# Build related configuration options
+#---------------------------------------------------------------------------
 
-# Enable source code inclusion in the documentation
+# Extract all entities (classes, functions, variables)
+EXTRACT_ALL = YES
+EXTRACT_PRIVATE = YES
+EXTRACT_STATIC = YES
+EXTRACT_LOCAL_CLASSES = YES
+EXTRACT_ANON_NSPACES = YES
+
+# Include undocumented members
+EXTRACT_LOCAL_METHODS = YES
+
+# Hide undocumented members
+HIDE_UNDOC_MEMBERS = NO
+HIDE_UNDOC_CLASSES = NO
+
+# Show namespaces
+HIDE_SCOPE_NAMES = NO
+
+# Show inheritance relations
+SHOW_INCLUDE_FILES = YES
+SHOW_GROUPED_MEMB_INC = NO
+
+# Brief member descriptions
+BRIEF_MEMBER_DESC = YES
+REPEAT_BRIEF = YES
+
+# Always detailed descriptions
+ALWAYS_DETAILED_SEC = NO
+
+#---------------------------------------------------------------------------
+# Configuration options related to warning and progress messages
+#---------------------------------------------------------------------------
+
+QUIET = NO
+WARNINGS = YES
+WARN_IF_UNDOCUMENTED = YES
+WARN_IF_DOC_ERROR = YES
+WARN_NO_PARAMDOC = NO
+
+#---------------------------------------------------------------------------
+# Configuration options related to the input files
+#---------------------------------------------------------------------------
+
+# Input encoding
+INPUT_ENCODING = UTF-8
+
+# Preprocessing
+ENABLE_PREPROCESSING = YES
+MACRO_EXPANSION = YES
+EXPAND_ONLY_PREDEF = NO
+SEARCH_INCLUDES = YES
+
+# Include paths
+INCLUDE_PATH = @CMAKE_SOURCE_DIR@/include
+
+# Predefined macros for better parsing
+PREDEFINED = __cplusplus \
+             "DOXYGEN_SHOULD_SKIP_THIS" \
+             "FORCE_INLINE=inline" \
+             "NOEXCEPT=noexcept"
+
+# Skip function implementations in source files
+SKIP_FUNCTION_MACROS = YES
+
+#---------------------------------------------------------------------------
+# Configuration options related to source browsing
+#---------------------------------------------------------------------------
+
 SOURCE_BROWSER = YES
+INLINE_SOURCES = NO
+STRIP_CODE_COMMENTS = YES
+REFERENCED_BY_RELATION = YES
+REFERENCES_RELATION = YES
+REFERENCES_LINK_SOURCE = YES
+SOURCE_TOOLTIPS = YES
+USE_HTAGS = NO
+VERBATIM_HEADERS = YES
 
-# Strip the path prefix from file names
+# Strip paths for cleaner display
 STRIP_FROM_PATH = @CMAKE_SOURCE_DIR@
-
-# Strip the path prefix from include file names
 STRIP_FROM_INC_PATH = @CMAKE_SOURCE_DIR@/include
 
-# Generate HTML header and footer files
+#---------------------------------------------------------------------------
+# Configuration options related to the alphabetical class index
+#---------------------------------------------------------------------------
+
+ALPHABETICAL_INDEX = YES
+COLS_IN_ALPHA_INDEX = 5
+IGNORE_PREFIX = 
+
+#---------------------------------------------------------------------------
+# Configuration options related to the HTML output
+#---------------------------------------------------------------------------
+
+GENERATE_HTML = YES
+HTML_OUTPUT = html
+HTML_FILE_EXTENSION = .html
+
+# HTML styling
 HTML_HEADER = 
 HTML_FOOTER = 
+HTML_STYLESHEET = 
+HTML_EXTRA_STYLESHEET = 
+HTML_EXTRA_FILES = 
 
-# Specify the main page for the documentation
-USE_MDFILE_AS_MAINPAGE = @CMAKE_SOURCE_DIR@/docs/mainpage.md
+# HTML navigation
+HTML_COLORSTYLE_HUE = 220
+HTML_COLORSTYLE_SAT = 100
+HTML_COLORSTYLE_GAMMA = 80
+
+# HTML search
+HTML_TIMESTAMP = YES
+HTML_DYNAMIC_SECTIONS = NO
+HTML_INDEX_NUM_ENTRIES = 100
+
+# HTML help and navigation
+GENERATE_DOCSET = NO
+GENERATE_HTMLHELP = NO
+GENERATE_QHP = NO
+GENERATE_ECLIPSEHELP = NO
+
+# Search engine
+SEARCHENGINE = YES
+SERVER_BASED_SEARCH = NO
+
+#---------------------------------------------------------------------------
+# Configuration options related to the LaTeX output
+#---------------------------------------------------------------------------
+
+GENERATE_LATEX = NO
+
+#---------------------------------------------------------------------------
+# Configuration options related to the RTF output
+#---------------------------------------------------------------------------
+
+GENERATE_RTF = NO
+
+#---------------------------------------------------------------------------
+# Configuration options related to the man page output
+#---------------------------------------------------------------------------
+
+GENERATE_MAN = NO
+
+#---------------------------------------------------------------------------
+# Configuration options related to the XML output
+#---------------------------------------------------------------------------
+
+GENERATE_XML = NO
+
+#---------------------------------------------------------------------------
+# Configuration options related to the DOCBOOK output
+#---------------------------------------------------------------------------
+
+GENERATE_DOCBOOK = NO
+
+#---------------------------------------------------------------------------
+# Configuration options for the AutoGen Definitions output
+#---------------------------------------------------------------------------
+
+GENERATE_AUTOGEN_DEF = NO
+
+#---------------------------------------------------------------------------
+# Configuration options related to the Perl module output
+#---------------------------------------------------------------------------
+
+GENERATE_PERLMOD = NO
+
+#---------------------------------------------------------------------------
+# Configuration options related to the preprocessor
+#---------------------------------------------------------------------------
+
+ENABLE_PREPROCESSING = YES
+MACRO_EXPANSION = YES
+EXPAND_ONLY_PREDEF = NO
+SEARCH_INCLUDES = YES
+
+#---------------------------------------------------------------------------
+# Configuration options related to external references
+#---------------------------------------------------------------------------
+
+TAGFILES = 
+GENERATE_TAGFILE = 
+ALLEXTERNALS = NO
+EXTERNAL_GROUPS = YES
+EXTERNAL_PAGES = YES
+
+#---------------------------------------------------------------------------
+# Configuration options related to the dot tool
+#---------------------------------------------------------------------------
+
+CLASS_DIAGRAMS = YES
+MSCGEN_PATH = 
+DIA_PATH = 
+HIDE_UNDOC_RELATIONS = YES
+HAVE_DOT = YES
+DOT_NUM_THREADS = 0
+DOT_FONTNAME = Helvetica
+DOT_FONTSIZE = 10
+DOT_FONTPATH = 
+
+# Dot graph generation
+CLASS_GRAPH = YES
+COLLABORATION_GRAPH = YES
+GROUP_GRAPHS = YES
+UML_LOOK = NO
+UML_LIMIT_NUM_FIELDS = 10
+TEMPLATE_RELATIONS = NO
+INCLUDE_GRAPH = YES
+INCLUDED_BY_GRAPH = YES
+CALL_GRAPH = NO
+CALLER_GRAPH = NO
+GRAPHICAL_HIERARCHY = YES
+DIRECTORY_GRAPH = YES
+
+# Dot output formats
+DOT_IMAGE_FORMAT = png
+INTERACTIVE_SVG = NO
+DOT_PATH = 
+DOTFILE_DIRS = 
+MSCFILE_DIRS = 
+DIAFILE_DIRS = 
+
+# Dot cleanup
+DOT_CLEANUP = YES
+
+#---------------------------------------------------------------------------
+# Options related to the search engine
+#---------------------------------------------------------------------------
+
+SEARCHENGINE = YES
+SERVER_BASED_SEARCH = NO
+EXTERNAL_SEARCH = NO
+SEARCHDATA_FILE = searchdata.xml
+
+#---------------------------------------------------------------------------
+# Configuration options related to the list generation
+#---------------------------------------------------------------------------
+
+GENERATE_TODOLIST = YES
+GENERATE_TESTLIST = YES
+GENERATE_BUGLIST = YES
+GENERATE_DEPRECATEDLIST = YES
